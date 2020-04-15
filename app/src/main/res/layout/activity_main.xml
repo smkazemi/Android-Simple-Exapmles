@@ -22,15 +22,15 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_margin="16dp"
-        app:layout_constraintBottom_toTopOf="@id/btn_changeFragment"
+        app:layout_constraintBottom_toTopOf="@id/btn_changeFragmentText"
         app:layout_constraintTop_toBottomOf="@id/toolbar"
         tools:layout="@layout/fragment_second" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btn_changeFragment"
+        android:id="@+id/btn_changeFragmentText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/change_fragments"
+        android:text="@string/change_fragments_text"
         android:textAllCaps="false"
         android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -44,6 +44,6 @@
         android:layout_height="0dp"
         android:layout_margin="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btn_changeFragment" />
+        app:layout_constraintTop_toBottomOf="@id/btn_changeFragmentText" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

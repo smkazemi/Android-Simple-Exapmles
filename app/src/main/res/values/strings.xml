@@ -3,8 +3,11 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="change_fragments">change Fragments</string>
+    <string name="change_fragments_text">change Fragments Text</string>
     <string name="first_fragment">First Fragment</string>
     <string name="dynamically_fragment">Dynamically fragment</string>
     <string name="second_fragment">Second Fragment</string>
+    <string name="txtKey">txtValue</string>
+    <string name="txt_value">Dynamically fragment</string>
+    <string name="change_fragment_text">Text of fragment textView changed from MainActivity</string>
 </resources>
