@@ -2,40 +2,44 @@ package fragment
 
 import android.content.Context
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import com.example.FragmentExample.R
 import kotlinx.android.synthetic.main.fragment_first.view.*
-import java.lang.ClassCastException
 
 /**
  * A simple [Fragment] subclass.
  */
 class FirstFragment : Fragment() {
 
-    var listener: FragmentListener? = null
+    private var listener: FragmentListener? = null
+    private lateinit var viewLayout: View
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
 
         // Inflate the layout for this fragment
-        val viewLayout = inflater.inflate(
+        viewLayout = inflater.inflate(
             R.layout.fragment_first,
             container, false
         )
 
-        // set text for textView embedded in fragment layout by a listener from activity
-        viewLayout.txt_first.text = listener?.getText()
-
+        // set text for textView embedded in fragment layout by extract from fragment arguments
+        viewLayout.txt_first.text = arguments?.getString(getString(R.string.txtKey))
 
         return viewLayout
     }
 
+    fun changeTxt(text: String) {
+        viewLayout.txt_first.text = " "
+        viewLayout.txt_first.text = text
+    }
+
     interface FragmentListener {
-        fun getText(): String
+        fun onFragmentStateChange(state: String)
     }
 
     override fun onAttach(context: Context?) {
@@ -44,6 +48,7 @@ class FirstFragment : Fragment() {
         try {
             // cast host activity to FragmentListener in order get interface
             listener = context as FragmentListener
+            listener?.onFragmentStateChange("On Attach")
 
         } catch (e: ClassCastException) {
 
@@ -53,4 +58,20 @@ class FirstFragment : Fragment() {
         }
     }
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        listener?.onFragmentStateChange("On Create")
+    }
+
+    override fun onDetach() {
+        super.onDetach()
+        listener?.onFragmentStateChange("On Detach")
+    }
+
+    override fun onViewStateRestored(savedInstanceState: Bundle?) {
+        super.onViewStateRestored(savedInstanceState)
+        listener?.onFragmentStateChange("On Restore")
+
+
+    }
 }
