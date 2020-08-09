@@ -2,7 +2,7 @@
 
 <img src="./screenShot.png" width="350" height="700"/>
 
-In this runnable-app below items implemented by ActivityForResult api :
+The following items have been implemented by ActivityForResult Api in this runnable-app 
 
 - Request runTime permission
 
