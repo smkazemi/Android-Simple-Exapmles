@@ -1,6 +1,6 @@
 ## Sample ActivityForResult usage 
 
-![](/screenShot.png)
+![](https://github.com/smkazemi/Android-Simple-Exapmles/blob/master/ActivityForResultApi/screenShot.png)
 
 In this runnable-app below items implemented by ActivityForResult api :
 
@@ -14,9 +14,7 @@ In this runnable-app below items implemented by ActivityForResult api :
 
 - GetContent
 
-  
-
-  ##### Requirements : 
+##### Requirements : 
 
   - sdk 29+
   - buildTools 29.0.3
