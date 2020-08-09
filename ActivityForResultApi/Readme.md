@@ -1,8 +1,6 @@
 ## Sample ActivityForResult usage 
 
-![](https://github.com/smkazemi/Android-Simple-Exapmles/blob/master/ActivityForResultApi/screenShot.png)
-
-<img src="file://screenShot.png" width="200" height="200"/>
+<img src="./screenShot.png" width="350" height="700"/>
 
 In this runnable-app below items implemented by ActivityForResult api :
 
