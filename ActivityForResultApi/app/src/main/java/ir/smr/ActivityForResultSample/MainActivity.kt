@@ -2,18 +2,27 @@ package ir.smr.ActivityForResultSample
 
 import android.Manifest.permission
 import android.app.Activity
+import android.app.usage.StorageStats
+import android.app.usage.StorageStatsManager
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.media.audiofx.EnvironmentalReverb
 import android.net.Uri
 import android.os.Bundle
+import android.os.Environment
+import android.os.storage.StorageManager
+import android.util.Log
 import android.widget.Toast
 import androidx.activity.result.ActivityResult
 import androidx.activity.result.contract.ActivityResultContract
 import androidx.activity.result.contract.ActivityResultContracts.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import androidx.core.content.FileProvider.getUriForFile
+import androidx.core.net.toUri
 import kotlinx.android.synthetic.main.activity_main.*
+import java.io.File
 
 class MainActivity : AppCompatActivity() {
 
@@ -40,15 +49,23 @@ class MainActivity : AppCompatActivity() {
         // taking picture from camera
         btn_capturePicture.setOnClickListener {
 
-            if (ContextCompat.checkSelfPermission(
-                    this,
-                    permission.CAMERA
-                ) == PackageManager.PERMISSION_GRANTED
-            )
-            // TODO : create the file and put the uri below
-                takePictureLauncher.launch(Uri.EMPTY)
-            else
-                requestPermissionLauncher.launch(permission.CAMERA)
+            if (isAllPermissionGranted(
+                    arrayOf(
+                        permission.CAMERA,
+                        permission.READ_EXTERNAL_STORAGE,
+                        permission.WRITE_EXTERNAL_STORAGE
+                    )
+                )
+            ) {
+                takePictureLauncher.launch(getFileUri())
+            } else
+                requestMultiplePermissionLauncher.launch(
+                    arrayOf(
+                        permission.CAMERA,
+                        permission.WRITE_EXTERNAL_STORAGE,
+                        permission.READ_EXTERNAL_STORAGE
+                    )
+                )
         }
 
         // change Activity
@@ -64,6 +81,36 @@ class MainActivity : AppCompatActivity() {
 
             customPickContentContractLauncher.launch("audio/*")
         }
+
+    }
+
+    private fun isAllPermissionGranted(permissions: Array<String>): Boolean {
+
+        permissions.forEach {
+            if (
+                ContextCompat.checkSelfPermission(this, it) != PackageManager.PERMISSION_GRANTED
+            ) return false
+        }
+
+        return true
+    }
+
+    private fun getFileUri(): Uri {
+
+        var image: File? = null
+        val dir = getExternalFilesDir(null)
+
+        dir?.apply {
+            if (exists() && isDirectory) {
+                image = File("$dir/imageTest.jpg")
+                image!!.createNewFile()
+            } else {
+                dir.mkdir()
+                getFileUri()
+            }
+        }
+
+        return getUriForFile(this, "ir.smr.ActivityForResultSample.fileprovider", image!!)
 
     }
 
@@ -108,7 +155,7 @@ class MainActivity : AppCompatActivity() {
         registerForActivityResult(CustomPickContentContract()) { uri: Uri ->
 
             if (uri.path?.isNotEmpty()!!)
-                toast("image path : ${uri.path}")
+                toast("file path : ${uri.path}")
         }
 
 
@@ -118,15 +165,19 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+    private fun Any.log(message: String) = Log.d("TAG", message)
+    private fun String.toLog() = Log.d("TAG", this)
+
+
     private fun Int.isOk() = this == Activity.RESULT_OK
 
 }
 
 class CustomPickContentContract : ActivityResultContract<String, Uri>() {
 
-    override fun createIntent(context: Context, imageType: String?) =
+    override fun createIntent(context: Context, fileType: String?) =
         Intent(Intent.ACTION_GET_CONTENT).apply {
-            type = imageType
+            type = fileType
         }
 
     override fun parseResult(resultCode: Int, intent: Intent?): Uri {
