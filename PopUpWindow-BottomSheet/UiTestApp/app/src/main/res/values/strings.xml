@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">UiTestApp</string>
+    <string name="main_title">سوال از متخصص</string>
+    <string name="completeProfileTip">تکمیل پروفایل سلامت به مشاوره بهتر کمک میکند</string>
+    <string name="goToProfile">برو به پروفایل سلامت</string>
+    <string name="credit"> %s سوال   </string>
+    <string name="creditOfQuestions">  شما برای پرسیدن   </string>
+    <string name="creditOfQuestions2">  اعتبار دارید  </string>
+    <string name="submit">ثبت</string>
+    <string name="question_type">در چه زمینه‌ای سوال دارید؟</string>
+    <string name="enterConversationText">متن گفتگو را وارد کن</string>
+    <string name="txt_conversation_counter">600/%s</string>
+    <string name="counterLimitText_600">* متن شما حداکثر می‌تواند شامل ۶۰۰ کاراکتر باشد</string>
+    <string name="camera">دوربین</string>
+    <string name="gallery">گالری</string>
+    <string name="file">فایل</string>
+    <string name="questionTitle">در چه زمینه‌ای سوال داری؟</string>
+    <string name="selectItemText">انتخاب کن</string>
+
+
+    <string-array name="sicknesses">
+        <item>ناباروری</item>
+        <item>زایمان</item>
+        <item>بیماری و عفونت</item>
+        <item>کودک</item>
+        <item>بیماری ۱</item>
+        <item>بیماری ۲</item>
+    </string-array>
+
+</resources>

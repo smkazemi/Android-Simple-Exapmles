@@ -1,0 +1,27 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Base application theme. -->
+    <style name="mediumFontStyle" parent="Theme.UiTestApp">
+
+        <item name="fontFamily">@font/samim_med</item>
+
+    </style>
+
+    <!-- borderless button -->
+    <style name="btn_borderless" parent="Widget.AppCompat.Button.Borderless">
+
+        <item name="fontFamily">@font/samim_med</item>
+
+    </style>
+
+
+    <!--     bottom sheet style-->
+    <style name="AppBottomSheetDialogTheme" parent="Theme.Design.Light.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/AppModalStyle</item>
+    </style>
+
+    <style name="AppModalStyle" parent="Widget.Design.BottomSheet.Modal">
+        <item name="android:background">@android:color/transparent</item>
+    </style>
+
+</resources>

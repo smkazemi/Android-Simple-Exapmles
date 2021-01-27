@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_bg_main"
+    tools:showIn="@layout/activity_main">
+
+    <LinearLayout
+        android:id="@+id/tipBox"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_32sdp"
+        android:layout_marginLeft="@dimen/_8sdp"
+        android:layout_marginTop="@dimen/_16sdp"
+        android:layout_marginRight="@dimen/_8sdp"
+        android:background="@drawable/custom_bg_oval"
+        android:backgroundTint="@color/orange"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txt_goToProfile"
+            style="@style/mediumFontStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="@dimen/_12sdp"
+            android:layout_marginRight="@dimen/_10sdp"
+            android:layout_weight="0.3"
+            android:background="?android:attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center"
+            android:text="@string/goToProfile"
+            android:textColor="@color/reddish"
+            android:textSize="@dimen/_9ssp"
+            android:textStyle="bold" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/d"
+            style="@style/mediumFontStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="@dimen/_12sdp"
+            android:layout_weight="0.7"
+            android:gravity="center"
+            android:text="@string/completeProfileTip"
+            android:textColor="@color/black"
+            android:textSize="@dimen/size_txt_tip" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linear_credit"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_32sdp"
+        android:layout_marginLeft="@dimen/_8sdp"
+        android:layout_marginTop="@dimen/_16sdp"
+        android:layout_marginRight="@dimen/_8sdp"
+        android:background="@drawable/custom_bg_oval"
+        android:backgroundTint="@color/white"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/tipBox">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/_28sdp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:text="@string/creditOfQuestions2"
+            android:textColor="@color/color_accent"
+            android:textSize="@dimen/_13ssp" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txt_credit"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/_28sdp"
+            android:text="@string/credit"
+            android:gravity="center"
+            android:layout_marginLeft="@dimen/_4sdp"
+            android:layout_marginRight="@dimen/_4sdp"
+            android:textColor="@color/color_accent"
+            android:textSize="@dimen/_13ssp"
+            android:textStyle="bold" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/_28sdp"
+            android:gravity="center"
+            android:text="@string/creditOfQuestions"
+            android:textColor="@color/color_accent"
+            android:textSize="@dimen/_13ssp" />
+
+    </LinearLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/questionType_box"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_16sdp"
+        app:layout_constraintTop_toBottomOf="@id/linear_credit">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_submit"
+            android:layout_width="@dimen/_82sdp"
+            android:layout_height="@dimen/_37sdp"
+            android:layout_margin="@dimen/_8sdp"
+            android:background="@drawable/custom_bg_oval"
+            android:backgroundTint="@color/very_light_pink"
+            android:text="@string/submit"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_13ssp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:id="@+id/btn_questionType"
+            android:layout_width="@dimen/_188sdp"
+            android:layout_height="@dimen/_37sdp"
+            android:layout_alignParentRight="true"
+            android:layout_margin="@dimen/_8sdp"
+            android:background="@drawable/custom_bg_oval_with_border"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="right"
+            android:orientation="horizontal">
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/txt_sickness_title"
+                style="@style/mediumFontStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_8sdp"
+                android:text="@string/question_type"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_12ssp" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_20sdp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:layout_marginRight="@dimen/_12sdp"
+                android:layout_marginBottom="@dimen/_10sdp"
+                app:srcCompat="@drawable/ic_healthcare_and_medical" />
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/edt_conversation"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_150sdp"
+        android:layout_marginLeft="@dimen/_8sdp"
+        android:layout_marginTop="@dimen/_16sdp"
+        android:layout_marginRight="@dimen/_8sdp"
+        android:background="@drawable/edt_bg_oval_"
+        android:gravity="top|right"
+        android:hint="@string/enterConversationText"
+        android:inputType="textMultiLine"
+        android:maxLength="600"
+        android:paddingTop="@dimen/_12sdp"
+        android:paddingRight="@dimen/_8sdp"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_14ssp"
+        app:layout_constraintTop_toBottomOf="@id/questionType_box" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/txt_counter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_8sdp"
+        android:text="@string/txt_conversation_counter"
+        android:textColor="@color/brown_grey"
+        android:textSize="@dimen/_10ssp"
+        app:layout_constraintBottom_toBottomOf="@id/edt_conversation"
+        app:layout_constraintLeft_toLeftOf="@id/edt_conversation" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/txt_counter_tip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:text="@string/counterLimitText_600"
+        android:textColor="@color/brown_grey"
+        android:textSize="@dimen/_11ssp"
+        app:layout_constraintRight_toRightOf="@id/edt_conversation"
+        app:layout_constraintTop_toBottomOf="@id/edt_conversation" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rec_preview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:layoutDirection="rtl"
+        app:layout_constraintTop_toBottomOf="@id/txt_counter_tip" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
